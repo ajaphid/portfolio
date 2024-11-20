@@ -3,5 +3,5 @@ My personal portfolio site!
 
 ### Technologies Used
 
-- **Next.js**
-- **TailwindCSS**
+- **JavaScript**
+- **HTML/CSS**
