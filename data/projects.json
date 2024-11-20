@@ -6,7 +6,7 @@
         "live-link": "https://dr-rows-555.com",
         "github-link": "https://github.com/ajaphid/Dr-Rows-555",
         "desktop-image": "images/projects/dr-rows-555/desktop.svg",
-        "mobile-images": ["/images/projects/dr-rows-555/mobile-1.svg", "/images/projects/dr-rows-555/mobile-2.svg", "/images/projects/dr-rows-555/mobile-3.svg"]
+        "mobile-images": ["images/projects/dr-rows-555/mobile-1.svg", "images/projects/dr-rows-555/mobile-2.svg", "images/projects/dr-rows-555/mobile-3.svg"]
     },
     {
         "title": "SiiV Art Storefront",
@@ -15,7 +15,7 @@
         "live-link": "https://ajaphid.github.io/siiv/",
         "github-link": "https://github.com/ajaphid/siiv",
         "desktop-image": "images/projects/siiv-art-storefront/desktop.svg",
-        "mobile-images": ["/images/projects/siiv-art-storefront/mobile-1.svg", "/images/projects/siiv-art-storefront/mobile-2.svg"]
+        "mobile-images": ["images/projects/siiv-art-storefront/mobile-1.svg", "images/projects/siiv-art-storefront/mobile-2.svg"]
     },
     {
         "title": "pxPaint",
@@ -24,6 +24,6 @@
         "live-link": "https://ajaphid.github.io/px-paint/",
         "github-link": "https://github.com/ajaphid/px-paint",
         "desktop-image": "images/projects/px-paint/desktop.svg",
-        "mobile-images": ["/images/projects/px-paint/desktop.svg"]
+        "mobile-images": ["images/projects/px-paint/desktop.svg"]
     }
 ]
