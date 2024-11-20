@@ -26,7 +26,7 @@ function Project(title, description, tools, githubLink, liveLink, desktopImage, 
                 <li><a href="${this.githubLink}" class="link-button">GitHub</a></li>
             </ul>
             <div class="project-image">
-                <img src="/assets/${this.desktopImage}" alt="${this.title}">
+                <img src="assets/${this.desktopImage}" alt="${this.title}">
             </div>
         `;
 
