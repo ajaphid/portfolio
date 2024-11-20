@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Dr. Row's 555",
+        "description": "A responsive, informative, interactive web app and guided breathing experience that helps users manage stress.",
+        "tools": ["HTML", "CSS", "JavaScript", "React", "Node.js", "Figma", "Netlify"],
+        "live-link": "https://dr-rows-555.com",
+        "github-link": "https://github.com/ajaphid/Dr-Rows-555",
+        "desktop-image": "images/projects/dr-rows-555/desktop.svg",
+        "mobile-images": ["images/projects/dr-rows-555/mobile-1.svg", "images/projects/dr-rows-555/mobile-2.svg", "images/projects/dr-rows-555/mobile-3.svg"]
+    },
+    {
+        "title": "SiiV Art Storefront",
+        "description": "A website and online storefront showcasing a collection of prints by artist SiiV.",
+        "tools": ["HTML", "CSS", "JavaScript", "Figma", "GitHub Pages"],
+        "live-link": "https://ajaphid.github.io/siiv/",
+        "github-link": "https://github.com/ajaphid/siiv",
+        "desktop-image": "images/projects/siiv-art-storefront/desktop.svg",
+        "mobile-images": ["images/projects/siiv-art-storefront/mobile-1.svg", "images/projects/siiv-art-storefront/mobile-2.svg"]
+    },
+    {
+        "title": "pxPaint",
+        "description": "An interactive digital drawing application using the MVC design pattern.",
+        "tools": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+        "live-link": "https://ajaphid.github.io/px-paint/",
+        "github-link": "https://github.com/ajaphid/px-paint",
+        "desktop-image": "images/projects/px-paint/desktop.svg",
+        "mobile-images": ["images/projects/px-paint/desktop.svg"]
+    }
+]
