@@ -1,32 +1,75 @@
-body {
-    background-color: green;
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-.page {
-    background-color: lightgray;
-    border: 2px solid black;
+body {
+    font-family: Arial, sans-serif;
 }
 
 /* navbar */
 .navbar {
     background-color: lightblue;
     border: 2px solid red;
+    padding: 0 4rem;
+
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .logo {
     border: 2px solid blue;
+    justify-self: start;
 }
 
 .nav-links {
     border: 2px solid green;
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 1fr auto;
 }
 
 .nav-links li {
     border: 2px solid pink;
+    list-style: none;
+    justify-self: start;
 }
 
+.nav-links a,
 .nav-links button {
-    border: 2px solid yellow;
+    text-decoration: none;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.nav-links button.link-button {
+    border: 2px solid yellowgreen;
+    justify-self: end;
+    padding: 0.5rem 1rem;
+    
+}
+
+/* pages */
+.page {
+    background-color: lightgray;
+    border: 2px solid black;
+    padding: 0 4rem;
+}
+
+.two-column-page {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* footer */
+footer {
+    background-color: lightblue;
+    border: 2px solid red;
 }
