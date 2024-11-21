@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -10,6 +11,9 @@ body {
 
 /* navbar */
 .navbar {
+    position: sticky;
+    top: 0;
+
     background-color: lightblue;
     border: 2px solid red;
     padding: 0 4rem;

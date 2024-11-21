@@ -31,10 +31,12 @@ function setMinPageHeight() {
             }
         });
     }
+
+    // take the navbar height into account when scrolling to sections
+    const html = document.querySelector('*');
+    html.style.scrollPadding = `${navbarHeight}px 0 0 0`;
 }
 
-
-// smooth scroll to sections on nav
 // highlight current section on navbar on scroll
 
 // other interactions like hover effects on buttons, etc.
