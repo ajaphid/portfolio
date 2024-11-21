@@ -1,3 +1,4 @@
+/* General Reset */
 * {
     padding: 0;
     margin: 0;
@@ -5,19 +6,22 @@
     scroll-behavior: smooth;
 }
 
+:root {
+    --primary-color: black;
+    --background-color: white;
+}
+
 body {
     font-family: Arial, sans-serif;
 }
 
-/* navbar */
+/* Navbar */
 .navbar {
     position: sticky;
     top: 0;
-
-    background-color: lightblue;
-    border: 2px solid red;
-    padding: 0 4rem;
-
+    border-bottom: 2px solid var(--primary-color);
+    background-color: var(--background-color);
+    padding: 0.8rem 4rem;
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
@@ -25,41 +29,80 @@ body {
 }
 
 .logo {
-    border: 2px solid blue;
     justify-self: start;
+    align-items: center;
+    height: 2rem;
+}
+
+.logo img {
+    height: 2rem;
 }
 
 .nav-links {
-    border: 2px solid green;
     align-items: center;
     display: grid;
-    gap: 1rem;
-    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    grid-template-columns: auto auto 1fr auto;
+    list-style: none;
 }
 
-.nav-links li {
-    border: 2px solid pink;
-    list-style: none;
+.nav-links a {
+    text-decoration: none;
+    font-weight: normal;
+    color: var(--primary-color);
+    display: inline-block;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.nav-link a {
     justify-self: start;
 }
 
-.nav-links a,
-.nav-links button {
+.nav-link a::before {
+    content: attr(data-content);
+    display: block;
+    height: 0;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+.nav-link a:hover {
+    transform: scale(1.05);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.selected-nav a {
+    font-weight: bold;
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+
+.selected-nav a:hover {
+    transform: scale(1.05); 
+}
+
+/* Link Buttons */
+.link-button {
+    border: 2px solid var(--primary-color);
+    border-radius: 25rem;
+    padding: 0.4rem 1rem;
     text-decoration: none;
-    font-size: 1rem;
-    border: none;
-    background: none;
-    cursor: pointer;
+    color: var(--primary-color);
+    transition: background-color 0.5s, color 0.5s; /* Unified transitions */
+    display: inline-block;
 }
 
-.nav-links button.link-button {
-    border: 2px solid yellowgreen;
-    justify-self: end;
-    padding: 0.5rem 1rem;
-    
+.link-button a {
+    all: unset; /* Remove inherited styles */
 }
 
-/* pages */
+.link-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* Pages */
 .page {
     background-color: lightgray;
     border: 2px solid black;
@@ -72,8 +115,11 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
-/* footer */
+/* Footer */
 footer {
     background-color: lightblue;
     border: 2px solid red;
+    text-align: center;
+    padding: 1rem;
 }
+
