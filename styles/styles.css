@@ -68,6 +68,7 @@ body {
 
 .nav-link a:hover {
     transform: scale(1.05);
+    color: var(--primary-color);
     font-weight: bold;
     text-decoration: underline;
 }
@@ -76,6 +77,7 @@ body {
     font-weight: bold;
     transform: scale(1.05);
     text-decoration: underline;
+    color: var(--primary-color);
 }
 
 .selected-nav a:hover {
