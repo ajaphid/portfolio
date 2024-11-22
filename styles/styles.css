@@ -126,6 +126,7 @@ button {
 .page {
     /* background-color: lightgray; */
     margin: 0 4rem;
+    padding-top: 2rem;
 }
 
 .page-title {
@@ -187,6 +188,7 @@ button {
     justify-content: space-between;
     gap: 1rem;
     font-size: 1.2rem;
+    margin-top: 0.5rem;
 }
 
 .intro-heading {
@@ -196,7 +198,7 @@ button {
 
 .about-description {
     font-weight: normal;
-    font-weight: 1rem;
+    font-size: 1.2rem;
 }
 
 .degree {
@@ -237,7 +239,7 @@ button {
     grid-row: 3; grid-column: 2;
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .social-links {
@@ -263,24 +265,51 @@ footer {
 }
 
 .project-tile {
-    border: 2px solid var(--secondary-color);
-    border-radius: 25px;
-    padding: 1rem;
     display: grid;
-    gap: 2rem;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 2rem;
+    align-items: center; /* Align content vertically */
+}
+
+.project-image img {
+    max-height: calc(1.25 * 100%); /* Set height relative to parent */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Prevent distortion */
+}
+
+
+.project-info {
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: auto auto auto 1fr;
+    margin-right: 3rem;
+}
+
+.project-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.project-description {
+    font-size: 1.2rem;
+    margin-top: 1rem;
 }
 
 .project-tools {
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .project-tools .dot {
-    margin: 0 0.5rem;
+    margin: 0 1rem;
 }
 
 .project-links {
+    margin-top: 2rem;
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
+    font-size: 1.2rem;
 }
 
