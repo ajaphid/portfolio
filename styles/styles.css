@@ -273,6 +273,10 @@ footer {
     align-items: center; /* Align content vertically */
 }
 
+#projects .project-tile:last-child {
+    border-bottom: none;
+}
+
 .project-image img {
     max-height: calc(1.25 * 100%); /* Set height relative to parent */
     width: auto; /* Maintain aspect ratio */
