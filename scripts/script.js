@@ -104,6 +104,9 @@ function handleNavSelect(linkTo) {
 
 // **TODO** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// **GENERAL**
+// squiggle line divider between pages
+
 // **NAVBAR**
 // little arrow showing download for the resume button
 // responsive navbar with a hamburger menu for mobile
@@ -113,11 +116,9 @@ function handleNavSelect(linkTo) {
 // have visible resume link mobile only
 
 // **PROJECTS**
-// ok there is a lot ... 
-// come back after about and contact but before making things responsive
+// mobile responsive
 
 // **CONTACT**
-// desktop styling
 // mobile responsive
 
 // **ASPIRATIONS**

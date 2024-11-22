@@ -278,7 +278,7 @@ footer {
 }
 
 .project-image img {
-    max-height: calc(1.25 * 100%); /* Set height relative to parent */
+    max-height: calc(1.1 * 100%); /* Set height relative to parent */
     width: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Prevent distortion */
 }
@@ -297,13 +297,14 @@ footer {
 }
 
 .project-description {
-    font-size: 1.2rem;
-    margin-top: 1rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
 
 .project-tools {
+    margin-top: 0.5rem;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .project-tools .dot {
@@ -314,6 +315,6 @@ footer {
     margin-top: 2rem;
     display: flex;
     gap: 1.2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
