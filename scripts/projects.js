@@ -22,7 +22,7 @@ function Project(title, description, tools, githubLink, liveLink, desktopImage, 
                 <div class="project-info">
                     <h2 class="project-title">${this.title}</h2>
                     <div class="project-description">${this.description}</div>
-                    <div class="project-tools">${this.tools}</div>
+                    <div class="project-tools">${this.tools.map(tool => `<span class='tool'>${tool}</span>`).join('<span class="dot"> • </span>')}</div>
                     <ul class="project-links">
                         <li><button><a href="${this.liveLink}" target="_blank" class="link-button">Live Site</a></button></li>
                         <li><button><a href="${this.githubLink}" target="_blank" class="link-button">GitHub</a></button></li>

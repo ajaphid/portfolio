@@ -275,6 +275,10 @@ footer {
     font-weight: bold;
 }
 
+.project-tools .dot {
+    margin: 0 0.5rem;
+}
+
 .project-links {
     display: flex;
     gap: 1rem;
