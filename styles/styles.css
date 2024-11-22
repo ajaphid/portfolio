@@ -12,7 +12,17 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", sans-serif;
+    display: grid;
+    gap: 2rem;
+}
+
+a {
+    all: unset;
+}
+
+ul {
+    list-style: none;
 }
 
 /* Navbar */
@@ -26,6 +36,7 @@ body {
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -95,10 +106,6 @@ body {
     display: inline-block;
 }
 
-.link-button a {
-    all: unset; /* Remove inherited styles */
-}
-
 .link-button:hover {
     background-color: var(--primary-color);
     color: var(--background-color);
@@ -107,8 +114,8 @@ body {
 /* Pages */
 .page {
     background-color: lightgray;
-    border: 2px solid black;
-    padding: 0 4rem;
+    /* border: 2px solid black; */
+    margin: 0 4rem;
 }
 
 .two-column-page {
@@ -119,9 +126,10 @@ body {
 
 /* Footer */
 footer {
-    background-color: lightblue;
-    border: 2px solid red;
+    background-color: var(--primary-color);
+    color: var(--background-color);
     text-align: center;
     padding: 1rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 

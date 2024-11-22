@@ -62,28 +62,36 @@ addEventListener("DOMContentLoaded", () => {
 function setMinPageHeight() {
     // pages should at least fill the window vertically
     // except the last page, which should also account for the footer
+    // this should take into account the gap from the grid
 
     const navbar = document.querySelector('nav');
     const pages = document.querySelectorAll('.page');
     const navbarHeight = navbar.offsetHeight;
     const footerHeight = document.querySelector('footer').offsetHeight;
+    
+    // select the gap height from the css grid for the body
+    const body = document.querySelector('body');
+    const gapHeight = window.getComputedStyle(body).rowGap;
+    // convert the string rem to a pixel value
+    const gapHeightPx = parseFloat(gapHeight);
+
+
     if (pages.length > 0) {
         const lastPage = pages[pages.length - 1];
 
+        // accounting for the footer
         pages.forEach(page => {
             if (lastPage === page) {
-                page.style.backgroundColor = 'blue';
-                page.style.minHeight = `${window.innerHeight - navbarHeight - footerHeight}px`;
+                page.style.minHeight = `${window.innerHeight - navbarHeight - footerHeight - gapHeightPx * 2}px`;
             } else { 
-                page.style.backgroundColor = 'red';
-                page.style.minHeight = `${window.innerHeight - navbarHeight}px`;
+                page.style.minHeight = `${window.innerHeight - navbarHeight - gapHeightPx * 2}px`;
             }
         });
     }
 
     // take the navbar height into account when scrolling to sections
     const html = document.querySelector('*');
-    html.style.scrollPadding = `${navbarHeight}px 0 0 0`;
+    html.style.scrollPadding = `${navbarHeight + gapHeightPx}px 0 0 0`;
 }
 
 function handleNavSelect(linkTo) {
@@ -94,4 +102,25 @@ function handleNavSelect(linkTo) {
     }
 }
 
+// **TODO** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// **NAVBAR**
+// little arrow showing download for the resume button
+// responsive navbar with a hamburger menu for mobile
+
+// **ABOUT**
+// desktop styling w grid
+// mobile responsive
+// have visible resume link mobile only
+
+// **PROJECTS**
+
+// **CONTACT**
+// desktop styling
+// mobile responsive
+
+// **ASPIRATIONS**
+// add a dark mode toggle
 // rotating and color changing star svg on hover for the home button
+// light or dark favicon based on the theme
+
