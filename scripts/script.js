@@ -109,7 +109,6 @@ function handleNavSelect(linkTo) {
 // responsive navbar with a hamburger menu for mobile
 
 // **ABOUT**
-// desktop styling w grid
 // mobile responsive
 // have visible resume link mobile only
 

@@ -9,6 +9,7 @@
 :root {
     --primary-color: black;
     --background-color: white;
+    --secondary-color: gray;
 }
 
 body {
@@ -28,6 +29,7 @@ ul {
 /* Navbar */
 .navbar {
     position: sticky;
+    z-index: 1000;
     top: 0;
     border-bottom: 2px solid var(--primary-color);
     background-color: var(--background-color);
@@ -62,7 +64,7 @@ ul {
     font-weight: normal;
     color: var(--primary-color);
     display: inline-block;
-    transition: transform 0.5s ease, color 0.5s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .nav-link a {
@@ -117,16 +119,99 @@ ul {
 
 /* Pages */
 .page {
-    background-color: lightgray;
-    /* border: 2px solid black; */
+    /* background-color: lightgray; */
     margin: 0 4rem;
 }
 
-.two-column-page {
+.page-title {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.6rem;
+    /* border: 2px solid blue; */
+}
+
+/* About Page */
+#about {
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
 }
+
+.about-me {
+    /* border: 2px solid blue; */
+    grid-row: 2; grid-column: 1;
+}
+
+.intro-welcome {
+    font-weight: bold;
+    font-size: 1.6rem;
+    /* border: 2px solid limegreen; */
+    grid-row: 3; grid-column: 1;
+}
+
+#read-more {
+    /* border: 2px solid magenta; */
+    grid-row: 4; grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    transition: all 0.3s;
+    
+}
+
+#read-more:hover {
+    transform: scale(1.05);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+#education {
+    /* border: 2px solid red; */
+    grid-row: 2; grid-column: 2;
+    align-self: end;
+}
+
+#status {
+    /* border: 2px solid green; */
+    grid-row: 3; grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.intro-heading {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+.about-description {
+    font-weight: normal;
+    font-weight: 1rem;
+}
+
+.degree {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.concentration {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.institution {
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
 
 /* Footer */
 footer {
