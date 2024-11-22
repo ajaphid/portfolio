@@ -26,6 +26,11 @@ ul {
     list-style: none;
 }
 
+button {
+    all: unset;
+    cursor: pointer;
+}
+
 /* Navbar */
 .navbar {
     position: sticky;
@@ -211,6 +216,33 @@ ul {
 
 .bold-text {
     font-weight: bold;
+}
+
+/* Contact Page */
+#contact {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
+}
+
+.contact-subtitle {
+    grid-column: 1;
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+.contact-container {
+    grid-column: 1;
+    grid-row: 3; grid-column: 2;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
 }
 
 
