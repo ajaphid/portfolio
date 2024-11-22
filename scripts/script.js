@@ -114,6 +114,8 @@ function handleNavSelect(linkTo) {
 // have visible resume link mobile only
 
 // **PROJECTS**
+// ok there is a lot ... 
+// come back after about and contact but before making things responsive
 
 // **CONTACT**
 // desktop styling
@@ -123,4 +125,5 @@ function handleNavSelect(linkTo) {
 // add a dark mode toggle
 // rotating and color changing star svg on hover for the home button
 // light or dark favicon based on the theme
+// full accessibility guidelines for the site
 

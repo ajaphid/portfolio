@@ -106,6 +106,10 @@ ul {
     display: inline-block;
 }
 
+.link-button a {
+    all: unset;
+}
+
 .link-button:hover {
     background-color: var(--primary-color);
     color: var(--background-color);
