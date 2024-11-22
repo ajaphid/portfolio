@@ -114,6 +114,7 @@ function handleNavSelect(linkTo) {
 // **ABOUT**
 // mobile responsive
 // have visible resume link mobile only
+// maybe rework desktop grid?
 
 // **PROJECTS**
 // mobile responsive
