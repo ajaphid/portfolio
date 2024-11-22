@@ -10,6 +10,7 @@
     --primary-color: black;
     --background-color: white;
     --secondary-color: gray;
+    --tile-background-color: rgb(231, 231, 231);
 }
 
 body {
@@ -105,6 +106,7 @@ button {
 /* Link Buttons */
 .link-button {
     border: 2px solid var(--primary-color);
+    background-color: var(--background-color);
     border-radius: 25rem;
     padding: 0.4rem 1rem;
     text-decoration: none;
@@ -334,4 +336,75 @@ footer {
     gap: 1.2rem;
     font-size: 1rem;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 846px) {
+   /* project tiles will be 1 column */
+    .project-tile {
+        grid-template-columns: 1fr;
+        border: 2px solid var(--secondary-color);
+        padding: 2rem;
+        border-radius: 25px;
+        background-color: var(--tile-background-color);
+    }
+
+    .project-info {
+        margin-right: 0;
+    }
+
+    /* desktop image will be replaced with 3 columns for mobile images.
+       some images will span 1 column, some will span 2, some will span 3.
+       it depends on how many images are in the mobile-images array.
+       3 images will span 1 column each.
+       2 images will have the first span 1 column and the second span 2 columns.
+       1 image will span 3 columns.
+    */
+}
+
+/* 750px the about and contact pages will be 1 column */
+@media screen and (max-width: 750px) {
+    #about, #contact {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* background-color: aquamarine; */
+    }
+
+    /* reset grid-column for child elements */
+    .contact-container,
+    .about-me,
+    .intro-welcome,
+    #about-details,
+    #read-more {
+        grid-column: 1;
+    }
+
+    #about-details {
+        grid-row: auto;
+    }
+
+    #education {
+        /* justify-self: center; */
+        justify-self: start;
+        text-align: left;
+        /* text-align: center; */
+        border-top: 2px solid var(--secondary-color);
+        padding-top: 1rem;
+    }
+
+    #status {
+        /* display: block; */
+        /* border: 2px solid red; */
+        /* align-items: start; */
+        /* text-align: left; */
+    }
+
+    /* makes this the last element in the single col grid */
+    #read-more {
+        grid-row: -1;
+    }
+    
+    
+}
+
 
