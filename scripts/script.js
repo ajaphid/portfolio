@@ -4,10 +4,24 @@ let pages = document.querySelectorAll('.page');
 let navLinks = document.querySelectorAll('.nav-link a');
 let logo = document.querySelector('.logo');
 
+let menuToggle = document.querySelector('.menu-toggle');
+let navLinksContainer = document.querySelector('.nav-links');
+let menuIcon = document.querySelector('.menu-icon');
+let closeIcon = document.querySelector('.close-icon');
+
+
 addEventListener("DOMContentLoaded", () => {
     console.log('HTML loaded');
     setMinPageHeight();
     loadProjects();
+
+    // when menu toggle is clicked, the menu icon should change
+    // the nav link visibility should toggle too
+    menuToggle.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    })
 
     window.addEventListener('resize', setMinPageHeight);
 
@@ -105,26 +119,25 @@ function handleNavSelect(linkTo) {
 // **TODO** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // **GENERAL**
-// squiggle line divider between pages
+// squiggle line divider between pages ?
 
 // **NAVBAR**
-// little arrow showing download for the resume button
 // responsive navbar with a hamburger menu for mobile
 
 // **ABOUT**
-// mobile responsive
 // have visible resume link mobile only
-// maybe rework desktop grid?
 
 // **PROJECTS**
 // mobile responsive
+// figure out image column layout for mobile
 
 // **CONTACT**
 // mobile responsive
 
 // **ASPIRATIONS**
-// add a dark mode toggle
+// animation for activating hamburger menu
 // rotating and color changing star svg on hover for the home button
+// add a dark mode toggle
 // light or dark favicon based on the theme
 // full accessibility guidelines for the site
 
