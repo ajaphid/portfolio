@@ -15,13 +15,31 @@ addEventListener("DOMContentLoaded", () => {
     setMinPageHeight();
     loadProjects();
 
-    // when menu toggle is clicked, the menu icon should change
-    // the nav link visibility should toggle too
+    // toggle menu visibility on click
     menuToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
+        /* this looks convoluted but it solved an issue I had with the transformX transition occuring on resize.
+            so when the user would resize the page so the hamburger menu is visible, it would show a brief transform of the dropdown menu.
+            this was solved by making these 'open' and 'closed' classes for the transform, that are only applied after the menu is toggled*/
+        navLinksContainer.classList.toggle('open');
+        if (navLinksContainer.classList.contains('open')) {
+            navLinksContainer.classList.remove('closed');
+        } else {
+            navLinksContainer.classList.add('closed');
+        }
         menuIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
-    })
+    });
+
+    // reset nav state on window resize (where the nav links are visible)
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 585) {
+            // Remove 'open' class and reset transform
+            navLinksContainer.classList.remove('open');
+            navLinksContainer.classList.remove('closed');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        }
+    });
 
     window.addEventListener('resize', setMinPageHeight);
 
@@ -121,18 +139,10 @@ function handleNavSelect(linkTo) {
 // **GENERAL**
 // squiggle line divider between pages ?
 
-// **NAVBAR**
-// responsive navbar with a hamburger menu for mobile
-
-// **ABOUT**
-// have visible resume link mobile only
 
 // **PROJECTS**
-// mobile responsive
 // figure out image column layout for mobile
 
-// **CONTACT**
-// mobile responsive
 
 // **ASPIRATIONS**
 // animation for activating hamburger menu
