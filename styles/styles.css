@@ -387,7 +387,8 @@ footer {
     .navbar {
         padding: 1rem 1.5rem;
         transition: all 0.3s ease;
-        position: sticky;
+        position: fixed; 
+        top: 0;
     }
 
     /* nav turns to hamburger menu here! */
@@ -462,6 +463,10 @@ footer {
     #about, #contact, #projects {
        margin: 0 2.5rem;
        padding-top: 0;
+    }
+
+    #about {
+        margin-top: calc(var(--navbar-height) + 2.5rem);
     }
     
 }
