@@ -72,6 +72,7 @@ button {
     gap: 2rem;
     grid-template-columns: auto auto 1fr auto;
     list-style: none;
+    transition: transform 0.5s ease;
 }
 
 .nav-links a {
@@ -385,7 +386,7 @@ footer {
     }
 
     .nav-links {
-        display: none; 
+        transform: translateX(100%);
         position: absolute;
         top: 100%; 
         width: 100%;
@@ -394,7 +395,7 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
         grid-template-rows: 1fr auto auto auto 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
         border-top: 2px solid var(--background-color);
         a {
             color: var(--background-color);
@@ -426,6 +427,7 @@ footer {
 
     .nav-links.active {
         display: grid;
+        transform: translateX(0);
     } 
 
     /* make the download resume button visible in the contact page */
