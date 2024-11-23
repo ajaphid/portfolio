@@ -17,6 +17,7 @@ body {
     font-family: "Inter", sans-serif;
     display: grid;
     gap: 2rem;
+    overflow-x: hidden;
 }
 
 a {
@@ -325,7 +326,7 @@ footer {
     gap: 2rem;
     border-bottom: 1px solid var(--secondary-color);
     padding-bottom: 2rem;
-    align-items: center; /* Align content vertically */
+    align-items: center;
 }
 
 #projects:last-child {
@@ -333,9 +334,9 @@ footer {
 }
 
 .project-image img {
-    max-height: calc(1.1 * 100%); /* Set height relative to parent */
-    width: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Prevent distortion */
+    max-height: calc(1.1 * 100%); /* set height relative to parent */
+    width: auto; 
+    object-fit: contain; 
 }
 
 
@@ -433,7 +434,6 @@ footer {
 
     .nav-links.closed {
         visibility: visible;
-        transform: translateX(100%);
     }
 
     /* make the download resume button visible in the contact page */
