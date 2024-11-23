@@ -10,7 +10,7 @@
     --primary-color: black;
     --background-color: white;
     --secondary-color: gray;
-    --tile-background-color: rgb(231, 231, 231);
+    --tile-background-color: rgb(222, 222, 222);
 }
 
 body {
@@ -193,7 +193,7 @@ button {
 #education {
     /* border: 2px solid blue; */
     text-align: right;
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--tile-background-color);
     padding-bottom: 1rem;
 }
 
@@ -257,7 +257,7 @@ button {
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto auto 1fr;
 }
 
 .contact-subtitle {
@@ -277,6 +277,11 @@ button {
 .social-links {
     display: flex;
     gap: 1rem;
+}
+
+#mobile-resume-download {
+    width: fit-content;
+    display: none;
 }
 
 
@@ -412,6 +417,12 @@ footer {
     .nav-links.active {
         display: grid;
     } 
+
+    /* make the download resume button visible in the contact page */
+    /* even though its in the nav links, i want it to be accessible without opening the nav */
+    #mobile-resume-download {
+        display: block;
+    }
     
 }
 
@@ -444,14 +455,11 @@ footer {
        2 images will have the first span 1 column and the second span 2 columns.
        1 image will span 3 columns.
     */
-}
 
-/* 750px the about and contact pages will be 1 column */
-@media screen and (max-width: 780px) {
+    /* about and contact pages both made 1 column*/
     #about, #contact {
         display: grid;
         grid-template-columns: 1fr;
-        /* background-color: aquamarine; */
     }
 
     /* reset grid-column for child elements */
@@ -467,12 +475,18 @@ footer {
         grid-row: auto;
     }
 
+    .about-me {
+        text-align: center;
+    }
+
+    .intro-welcome {
+        text-align: center;
+    }
+
     #education {
         /* justify-self: center; */
-        justify-self: start;
-        text-align: left;
-        /* text-align: center; */
-        border-top: 2px solid var(--secondary-color);
+        text-align: center;
+        border-top: 2px solid var(--tile-background-color);
         padding-top: 1rem;
     }
 
@@ -487,8 +501,5 @@ footer {
     #read-more {
         grid-row: -1;
     }
-    
-    
 }
-
 
