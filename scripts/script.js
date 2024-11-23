@@ -12,7 +12,7 @@ let closeIcon = document.querySelector('.close-icon');
 
 addEventListener("DOMContentLoaded", () => {
     console.log('HTML loaded');
-    setMinPageHeight();
+    setMinPageHeight_NavBarHeight();
     loadProjects();
 
     // toggle menu visibility on click
@@ -41,7 +41,7 @@ addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    window.addEventListener('resize', setMinPageHeight);
+    window.addEventListener('resize', setMinPageHeight_NavBarHeight);
 
     // the first child of the nav links should be selected by default
     navLinks[0].parentElement.classList.add('selected-nav');
@@ -91,7 +91,7 @@ addEventListener("DOMContentLoaded", () => {
 
 });
 
-function setMinPageHeight() {
+function setMinPageHeight_NavBarHeight() {
     // pages should at least fill the window vertically
     // except the last page, which should also account for the footer
     // this should take into account the gap from the grid
@@ -100,6 +100,9 @@ function setMinPageHeight() {
     const pages = document.querySelectorAll('.page');
     const navbarHeight = navbar.offsetHeight;
     const footerHeight = document.querySelector('footer').offsetHeight;
+
+    // set the CSS variable for --navbar-height
+    document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
     
     // select the gap height from the css grid for the body
     const body = document.querySelector('body');
