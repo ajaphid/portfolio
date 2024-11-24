@@ -55,11 +55,24 @@ button {
     align-items: center;
     height: 2rem;
     color: var(--background-color);
+
+    animation: rotate 0.8s infinite linear paused;
 }
+
+@keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.logo:hover {
+    animation-play-state: running;
+  }
 
 #logo-svg{
     height: 2rem;
 }
+
 
 .menu-toggle {
     display: none;
