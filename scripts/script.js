@@ -17,7 +17,8 @@ addEventListener("DOMContentLoaded", () => {
     loadProjects();
 
     // tap effect for clicking logo on mobile
-    logo.addEventListener('touchstart', () => {
+    logo.addEventListener('touchstart', (e) => {
+        e.preventDefault();
         logo.classList.add('spin');
         setTimeout(() => {
             logo.classList.remove('spin');

@@ -142,7 +142,7 @@ button {
 }
 
 .logo-wrapper.spin {
-    animation: continuous-spin 0.5s linear; /* Run the spin animation */
+    animation: continuous-spin 0.5s linear; 
     transition: continuous-spin 0.2s ease-in-out;
 }
 /* end of tap logo animation */
