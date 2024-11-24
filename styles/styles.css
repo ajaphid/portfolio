@@ -726,3 +726,14 @@ footer {
 
 }
 
+/* disables hover behavior for touch devices - to stop infinite spin for logo*/
+@media (hover: none) and (pointer: coarse) {
+    .logo:hover {
+        animation-play-state: paused; 
+    }
+
+    .logo-wrapper:has(> :hover) {
+        rotate: 0deg; 
+    }
+}
+
