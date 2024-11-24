@@ -117,16 +117,16 @@ function setMinPageHeight_NavBarHeight() {
         // accounting for the footer
         pages.forEach(page => {
             if (lastPage === page) {
-                page.style.minHeight = `${window.innerHeight - navbarHeight - footerHeight - gapHeightPx * 2}px`;
+                page.style.minHeight = `${window.innerHeight - navbarHeight - footerHeight}px`;
             } else { 
-                page.style.minHeight = `${window.innerHeight - navbarHeight - gapHeightPx * 2}px`;
+                page.style.minHeight = `${window.innerHeight - navbarHeight}px`;
             }
         });
     }
 
     // take the navbar height into account when scrolling to sections
     const html = document.querySelector('*');
-    html.style.scrollPadding = `${navbarHeight + gapHeightPx}px 0 0 0`;
+    html.style.scrollPadding = `${navbarHeight}px 0 0 0`;
 }
 
 function handleNavSelect(linkTo) {
@@ -148,7 +148,6 @@ function handleNavSelect(linkTo) {
 
 
 // **ASPIRATIONS**
-// animation for activating hamburger menu
 // rotating and color changing star svg on hover for the home button
 // add a dark mode toggle
 // light or dark favicon based on the theme

@@ -13,9 +13,6 @@ function Project(title, description, tools, githubLink, liveLink, desktopImage, 
         const projectElement = document.createElement('div');
         projectElement.classList.add('project-tile');
         projectElement.innerHTML = `
-            <div class="project-image">
-                <img src="assets/${this.desktopImage}" alt="${this.title}">
-            </div>
             <div class="project-info">
                 <h2 class="project-title">${this.title}</h2>
                 <div class="project-description">${this.description}</div>
@@ -24,6 +21,9 @@ function Project(title, description, tools, githubLink, liveLink, desktopImage, 
                     <li><button><a href="${this.liveLink}" target="_blank" class="link-button">Live Site</a></button></li>
                     <li><button><a href="${this.githubLink}" target="_blank" class="link-button">GitHub</a></button></li>
                 </ul>
+            </div>
+            <div class="project-image">
+                <img src="assets/${this.desktopImage}" alt="${this.title}">
             </div>
         `;
 

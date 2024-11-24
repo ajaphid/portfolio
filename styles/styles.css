@@ -11,14 +11,14 @@
     --background-color: white;
     --secondary-color: gray;
     --tile-background-color: rgb(222, 222, 222);
-    --navbar-height: '';
+    --navbar-height: '73px';
 }
 
 body {
     font-family: "Inter", sans-serif;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    /* gap: 2rem; */
 }
 
 a {
@@ -41,7 +41,7 @@ button {
     z-index: 1000;
     width: 100%;
     background-color: var(--primary-color);
-    padding: 1rem 2rem;
+    padding: 1rem 4rem 1rem 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -161,14 +161,27 @@ button {
 /* Pages */
 .page {
     /* background-color: lightgray; */
-    margin: 0 4rem;
-    padding-top: 2rem;
+    margin: 0;
+    padding: 2rem 4rem 2rem 4rem;
 }
 
 .page-title {
     font-weight: bold;
     text-decoration: underline;
     font-size: 1.6rem;
+    /* background-color: var(--primary-color); */
+    /* background-image:
+    linear-gradient(
+        20deg,
+        #9bdceb,
+        #cdd8e3,
+        #f3ecf3,
+        #e7f6a0
+    ); */
+    color: var(--primary-color);
+    /* border: 1px solid var(--primary-color); */
+    /* width: fit-content; */
+    /* padding: 0.3rem 0.8rem; */
 }
 
 /* About Page */
@@ -177,6 +190,7 @@ button {
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto 1fr auto;
+    /* background-color: rgb(227, 185, 185); */
 }
 
 .about-me {
@@ -277,6 +291,7 @@ button {
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto 1fr;
+    /* background-color: rgb(205, 220, 175); */
 }
 
 .contact-subtitle {
@@ -319,25 +334,60 @@ footer {
     display: grid;
     gap: 2rem;
     grid-template-rows: auto 1fr;
+    background-image:
+        linear-gradient(
+            25deg,
+            #9bdceb94,
+            #e2e7c687,
+            #e4ebf19f,
+            #cddbf179,
+            #f3ecf38f,
+            #e8f6a086
+        );
+
+    margin: 2rem 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .project-tile {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    border-bottom: 1px solid var(--secondary-color);
-    padding: 1rem 0;
+    /* border-bottom: 1px solid var(--secondary-color); */
+    /* padding: 1rem 0; */
+    /* border: 2px solid var(--secondary-color); */
+    /* border: 2px solid var(--background-color); */
     align-items: center;
+    background-color: var(--background-color);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.project-tile:last-child {
-    border-bottom: none;
+.project-image {
+    /* border: 2px solid red; */
+    display: grid;
+    height: calc(100% - 1rem);
+    width: auto;
+    gap: 0;
+    align-items: center;
+    margin: 0;
+    margin-right: 2rem;
+    padding: 0;
+    padding-right: 1rem;
+    justify-items: center;
 }
 
 .project-image img {
-    max-height: calc(2 * 100%); 
-    width: auto; 
+    height: 100%;
+    width: auto;
     object-fit: contain; 
+    /* border: 2px solid green; */
+    margin: 0;
+    padding: 0;
+    padding: 1rem 0;
+    /* margin-right: 1rem; */
 }
 
 
@@ -345,17 +395,33 @@ footer {
     display: grid;
     gap: 1rem;
     grid-template-rows: auto auto auto 1fr;
-    margin-right: 3rem;
+    align-self: center;
+    padding: 2rem 0;
+    /* border: 2px solid blue; */
+    margin-left: 2rem;
+    /* margin-right: 3rem; */
 }
 
 .project-title {
     font-size: 2rem;
     font-weight: bold;
+    background-image:
+        linear-gradient(
+            20deg,
+            #9bdceb,
+            #cdd8e3,
+            #f3ecf3,
+            #e7f6a0
+        );
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
 .project-description {
     font-size: 1rem;
     margin-top: 0.5rem;
+    /* border: 2px solid pink; */
 }
 
 .project-tools {
@@ -385,7 +451,8 @@ footer {
     }
 
     .navbar {
-        padding: 1rem 1.5rem;
+        padding: 0 1rem;
+        height: var(--navbar-height);
         transition: all 0.3s ease;
         position: fixed; 
         top: 0;
@@ -461,20 +528,26 @@ footer {
     }
 
     #about, #contact, #projects {
-       margin: 0 2.5rem;
-       padding-top: 0;
+       margin: 0;
+       padding: 2rem 2rem;
+    }
+
+    #projects {
+        margin: 2rem 0;
     }
 
     #about {
-        margin-top: calc(var(--navbar-height) + 2.5rem);
+        margin-top: calc(var(--navbar-height));
     }
     
 }
 
-@media screen and (max-width: 846px) {
+@media screen and (max-width: 928px) {
    /* project tiles will be 1 column */
     .project-tile {
         grid-template-columns: 1fr;
+        padding: 2rem;
+        padding-bottom: 0;
         /* border: 2px solid var(--secondary-color); */
         /* padding: 2rem; */
         /* border-radius: 25px; */
@@ -482,7 +555,11 @@ footer {
     }
 
     .project-info {
-        margin-right: 0;
+        /* margin-right: 0; */
+        /* margin: 2rem; */
+        margin: 0;
+        /* border: 2px solid red; */
+        padding: 0;
     }
 
     .project-links {
