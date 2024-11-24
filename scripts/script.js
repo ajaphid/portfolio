@@ -8,6 +8,7 @@ let menuToggle = document.querySelector('.menu-toggle');
 let navLinksContainer = document.querySelector('.nav-links');
 let menuIcon = document.querySelector('.menu-icon');
 let closeIcon = document.querySelector('.close-icon');
+let clickableNavLinks = document.querySelectorAll('.nav-links li');
 
 
 addEventListener("DOMContentLoaded", () => {
@@ -30,6 +31,13 @@ addEventListener("DOMContentLoaded", () => {
         menuIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
     });
+
+    // if the user is on mobile and one of the nav-links lis is clicked, close the menu 
+    // (this includes the resume, which is a li but not a nav-link)
+    clickableNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
 
     // reset nav state on window resize (where the nav links are visible)
     window.addEventListener('resize', () => {
@@ -102,7 +110,9 @@ function setMinPageHeight_NavBarHeight() {
     const footerHeight = document.querySelector('footer').offsetHeight;
 
     // set the CSS variable for --navbar-height
-    document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+    // to the min value of the navbarHeight or 73px
+
+    document.documentElement.style.setProperty('--navbar-height', `${Math.max(navbarHeight, 73)}px`);
     
     // select the gap height from the css grid for the body
     const body = document.querySelector('body');
@@ -136,6 +146,16 @@ function handleNavSelect(linkTo) {
         linkTo.parentElement.classList.add('selected-nav');
     }
 }
+
+function closeMenu() {
+    if (window.innerWidth <= 585) {
+    navLinksContainer.classList.remove('open');
+    navLinksContainer.classList.add('closed');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+    }
+}
+
 
 // **TODO** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
