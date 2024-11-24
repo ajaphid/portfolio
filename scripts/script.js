@@ -18,7 +18,6 @@ addEventListener("DOMContentLoaded", () => {
 
     // tap effect for clicking logo on mobile
     logo.addEventListener('touchstart', (e) => {
-        e.preventDefault();
         logo.classList.add('spin');
         setTimeout(() => {
             logo.classList.remove('spin');
@@ -145,7 +144,8 @@ function setMinPageHeight_NavBarHeight() {
 
     // take the navbar height into account when scrolling to sections
     const html = document.querySelector('*');
-    html.style.scrollPadding = `${navbarHeight}px 0 0 0`;
+    console.log(navbarHeight);
+    html.style.scrollPadding = `${Math.max(navbarHeight, 73)}px 0 0 0`;
 
 
     // for the projects page, take the triangle height into account on scroll navigation
@@ -153,7 +153,7 @@ function setMinPageHeight_NavBarHeight() {
     const projectsPage = document.querySelector('#projects');
     const triangleHeight = 50 * 2.75;
     if (projectsPage) {
-        projectsPage.style.scrollMarginTop = `${navbarHeight - triangleHeight}px`; // Adjust for projects
+        projectsPage.style.scrollMarginTop = `${Math.max(navbarHeight, 73) - triangleHeight}px`; // Adjust for projects
     }
 
 
@@ -175,21 +175,6 @@ function closeMenu() {
     closeIcon.classList.add('hidden');
     }
 }
-
-
-// **TODO** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-// **PROJECTS**
-// figure out image column layout for mobile
-
-// **INTERACTIONS**
-// nav link-button should show a gradient on hover instead of --background-color
-// logo star should have a spin animation on hover
-// logo star should change to a gradient on hover
-    // make the favicon the gradient star
-// mobile tap animation for the logo star - a few spins and a gradient change
-
 
 
 // **ASPIRATIONS**
