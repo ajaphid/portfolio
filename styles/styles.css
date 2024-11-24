@@ -42,7 +42,7 @@ button {
     z-index: 1000;
     width: 100%;
     background-color: var(--primary-color);
-    padding: 1rem 4rem 1rem 1rem;
+    padding: 1rem 4rem 1rem 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -146,10 +146,20 @@ button {
     color: var(--background-color);
     width: fit-content;
     margin: auto;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .nav-links .link-button:hover {
     background-color: var(--background-color);
+    /* background-color: rgba(255, 255, 255, 0); */
+    /* background-image:
+        linear-gradient(
+            20deg,
+            #9bdceb,
+            #cdd8e3,
+            #f3ecf3,
+            #e7f6a0
+        ); */
     a {
         color: var(--primary-color);
     }
@@ -308,11 +318,22 @@ button {
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 2rem;
+    /* border: 2px solid blue; */
+    background-image:
+        linear-gradient(
+            20deg,
+            #9bdceb,
+            #cdd8e3,
+            #f3ecf3,
+            #e7f6a0
+        );
+    padding: 2rem;
+    border-radius: 5px;
 }
 
 .social-links {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 #mobile-resume-download {
