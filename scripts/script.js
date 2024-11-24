@@ -137,6 +137,66 @@ function setMinPageHeight_NavBarHeight() {
     // take the navbar height into account when scrolling to sections
     const html = document.querySelector('*');
     html.style.scrollPadding = `${navbarHeight}px 0 0 0`;
+
+    // const projectsPage = document.querySelector('#projects');
+    // if (projectsPage) {
+    //     const triangleHeight = 50;
+    //     projectsPage.style.paddingTop = `${navbarHeight + triangleHeight}px`;
+    // }
+
+    /* Projects Page */
+    // #projects {
+    //     display: grid;
+    //     position: relative;
+    //     gap: 2rem;
+    //     grid-template-rows: auto 1fr;
+    //     background:
+    //         linear-gradient(
+    //             25deg,
+    //             #9bdceb94,
+    //             #e2e7c69b,
+    //             #e4ebf195,
+    //             #cddbf192,
+    //             #f2e7f2,
+    //             #e8f6a09b
+    //         );
+
+    //     margin: 2rem 0;
+    //     padding-top: 6rem;
+    //     padding-bottom: 8rem;
+    //     /* box-shadow: 2px 2px 10px rgb(0, 0, 0); */
+    // }
+
+    // #projects::before,
+    // #projects::after {
+    //     content: ' ';
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 50px;
+    //     background-color: var(--background-color);
+    //     mask-image: url('../assets/border-shapes/triangle.svg');
+    //     -webkit-mask-image: url('../assets/border-shapes/triangle.svg');
+    //     /* margin: 6rem 0; */
+    // }
+
+    // #projects::before {
+    //     top: 0rem;
+    // }
+
+    // #projects::after {
+    //     bottom: 0;
+    //     transform: rotate(.5turn);
+    // }
+
+    // for the projects page, take the triangle height into account on scroll navigation
+    // i want to scroll to the top of the projects page, not the top of the triangle
+    const projectsPage = document.querySelector('#projects');
+    const triangleHeight = 50 * 2.75;
+    if (projectsPage) {
+        projectsPage.style.scrollMarginTop = `${navbarHeight - triangleHeight}px`; // Adjust for projects
+    }
+
+
 }
 
 function handleNavSelect(linkTo) {
@@ -159,12 +219,17 @@ function closeMenu() {
 
 // **TODO** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// **GENERAL**
-// squiggle line divider between pages ?
-
 
 // **PROJECTS**
 // figure out image column layout for mobile
+
+// **INTERACTIONS**
+// nav link-button should show a gradient on hover instead of --background-color
+// logo star should have a spin animation on hover
+// logo star should change to a gradient on hover
+    // make the favicon the gradient star
+// mobile tap animation for the logo star - a few spins and a gradient change
+
 
 
 // **ASPIRATIONS**
