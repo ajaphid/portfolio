@@ -247,9 +247,9 @@ button {
 }
 
 .page-title {
-    font-weight: bold;
+    font-weight: normal;
     text-decoration: underline;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: var(--primary-color);
 }
 
