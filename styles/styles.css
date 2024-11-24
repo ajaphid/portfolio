@@ -523,8 +523,8 @@ footer {
 .project-links {
     margin-top: 2rem;
     display: flex;
-    gap: 1.2rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    gap: 2rem;
 }
 
 /* Media Queries */
@@ -607,6 +607,8 @@ footer {
     /* even though its in the nav links, i want it to be accessible without opening the nav */
     #mobile-resume-download {
         display: block;
+        background-color: var(--background-color);
+        background-image: none;
     }
 
     #about, #contact, #projects {
@@ -621,8 +623,7 @@ footer {
     }
 
     .project-links {
-        font-size: 1.2rem;
-        gap: 2rem;
+        justify-content: center;
     }
 
     #about {
@@ -653,6 +654,8 @@ footer {
 
     .project-links {
         margin-top: 0.5rem;
+        font-size: 1.2rem;
+        gap: 2rem;
     }
 
     .project-image{
