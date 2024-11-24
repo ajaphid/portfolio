@@ -12,6 +12,13 @@
     --secondary-color: gray;
     --line-color: rgb(222, 222, 222);
     --navbar-height: '73px';
+    --gradient-1:         linear-gradient(
+        20deg,
+        #9bdceb,
+        #cdd8e3,
+        #f3ecf3,
+        #e7f6a0
+    );
 }
 
 body {
@@ -42,6 +49,7 @@ button {
     z-index: 1000;
     width: 100%;
     background-color: var(--primary-color);
+    /* background-color: var(--background-color); */
     padding: 1rem 4rem 1rem 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -51,12 +59,22 @@ button {
 }
 
 .logo {
-    justify-self: start;
-    align-items: center;
-    height: 2rem;
-    color: var(--background-color);
+    /* justify-self: start;
+    align-items: center; */
 
-    animation: rotate 0.8s infinite linear paused;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: var(--gradient-1); 
+    mask-image: url('../assets/images/links-buttons/tilted-star.svg'); 
+    -webkit-mask-image: url('../assets/images/links-buttons/tilted-star.svg');
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    
 }
 
 @keyframes rotate {
@@ -66,6 +84,9 @@ button {
   }
 
 .logo:hover {
+    animation:
+        rotate 2s ease-in,
+        rotate 1s 2s linear infinite;
     animation-play-state: running;
   }
 
