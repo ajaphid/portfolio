@@ -2,7 +2,7 @@ import { loadProjects } from './projects.js';
 
 let pages = document.querySelectorAll('.page');
 let navLinks = document.querySelectorAll('.nav-link a');
-let logo = document.querySelector('.logo');
+let logo = document.querySelector('.logo-wrapper');
 
 let menuToggle = document.querySelector('.menu-toggle');
 let navLinksContainer = document.querySelector('.nav-links');
@@ -15,6 +15,14 @@ addEventListener("DOMContentLoaded", () => {
     console.log('HTML loaded');
     setMinPageHeight_NavBarHeight();
     loadProjects();
+
+    // tap effect for clicking logo on mobile
+    logo.addEventListener('touchstart', () => {
+        logo.classList.add('spin');
+        setTimeout(() => {
+            logo.classList.remove('spin');
+        }, 500 + 200 + 200);
+    })
 
     // toggle menu visibility on click
     menuToggle.addEventListener('click', () => {
@@ -138,55 +146,6 @@ function setMinPageHeight_NavBarHeight() {
     const html = document.querySelector('*');
     html.style.scrollPadding = `${navbarHeight}px 0 0 0`;
 
-    // const projectsPage = document.querySelector('#projects');
-    // if (projectsPage) {
-    //     const triangleHeight = 50;
-    //     projectsPage.style.paddingTop = `${navbarHeight + triangleHeight}px`;
-    // }
-
-    /* Projects Page */
-    // #projects {
-    //     display: grid;
-    //     position: relative;
-    //     gap: 2rem;
-    //     grid-template-rows: auto 1fr;
-    //     background:
-    //         linear-gradient(
-    //             25deg,
-    //             #9bdceb94,
-    //             #e2e7c69b,
-    //             #e4ebf195,
-    //             #cddbf192,
-    //             #f2e7f2,
-    //             #e8f6a09b
-    //         );
-
-    //     margin: 2rem 0;
-    //     padding-top: 6rem;
-    //     padding-bottom: 8rem;
-    //     /* box-shadow: 2px 2px 10px rgb(0, 0, 0); */
-    // }
-
-    // #projects::before,
-    // #projects::after {
-    //     content: ' ';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 50px;
-    //     background-color: var(--background-color);
-    //     mask-image: url('../assets/border-shapes/triangle.svg');
-    //     -webkit-mask-image: url('../assets/border-shapes/triangle.svg');
-    //     /* margin: 6rem 0; */
-    // }
-
-    // #projects::before {
-    //     top: 0rem;
-    // }
-
-    // #projects::after {
-    //     bottom: 0;
-    //     transform: rotate(.5turn);
-    // }
 
     // for the projects page, take the triangle height into account on scroll navigation
     // i want to scroll to the top of the projects page, not the top of the triangle

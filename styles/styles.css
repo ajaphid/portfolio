@@ -49,7 +49,6 @@ button {
     z-index: 1000;
     width: 100%;
     background-color: var(--primary-color);
-    /* background-color: var(--background-color); */
     padding: 1rem 4rem 1rem 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -58,10 +57,53 @@ button {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.logo {
-    /* justify-self: start;
-    align-items: center; */
+/*
+ * Animated Rotating Logo with Wrapper Interaction
+ * 
+ * This section defines the animation behavior for a rotating logo.
+ * The logo is displayed as a gradient-filled SVG star and responds
+ * dynamically to user hover interactions with the following effects:
+ * 
+ * 1. **Logo Animation (Spin on Hover):**
+ *    - The `.logo` spins continuously when hovered, using the `@keyframes rotate`
+ *      animation. The spin is constant (`linear` timing) and lasts 0.75 seconds
+ *      per full rotation.
+ *    - By default, the animation is paused (`animation-play-state: paused`)
+ *      and only starts running on hover (`.logo:hover` triggers `animation-play-state: running`).
+ * 
+ * 2. **Wrapper Animation (Ease-Out Rotation):**
+ *    - The `.logo-wrapper` applies a smooth rotation to the entire logo and its container.
+ *    - When the `.logo` inside the wrapper is hovered, the wrapper rotates by `-360deg`
+ *      over 1.5 seconds, easing out (`ease-out` timing).
+ *    - The `:has()` pseudo-class detects when the `.logo` inside is hovered
+ *      and applies the rotation effect to the wrapper.
+ * 
+ * 3. **Combined Effect:**
+ *    - The `.logo` spins continuously while the `.logo-wrapper` gradually rotates and
+ *      decelerates after the user stops hovering.
+ *    - The 2x relationship between durations (1.5s for the wrapper, 0.75s for the logo)
+ *      causes a smooth layered effect where the wrapper's rotation ends naturally
+ *      after the logo has completed two full spins.
+ * 
+ * Citation:
+ * - The animation timing and easing were inspired by Kevin Powell's video on
+ *   rotation animations: https://www.youtube.com/watch?v=gE5PnHcv3RI
+ */
 
+ @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.logo-wrapper {
+    rotate: 0deg;
+    transition: rotate 1.5s ease-out;
+    width: fit-content;
+    height: fit-content;
+}
+
+ .logo {
     display: block;
     width: 2rem;
     height: 2rem;
@@ -75,24 +117,35 @@ button {
     mask-size: contain;
     -webkit-mask-size: contain;
     
+    animation: rotate 0.5s infinite linear paused;
 }
 
-@keyframes rotate {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
 .logo:hover {
-    animation:
-        rotate 2s ease-in,
-        rotate 1s 2s linear infinite;
     animation-play-state: running;
   }
 
-#logo-svg{
-    height: 2rem;
+.logo-wrapper:has(> :hover) {
+    rotate: -360deg;
 }
+
+/* end of hover logo animation */
+
+/*  - this animation is for logo tap on mobile, rotates the star 1x, 
+    - has a timeout in js for the 0.2s * 2 ease in and out + 0.5s for rotation */
+@keyframes continuous-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-wrapper.spin {
+    animation: continuous-spin 0.5s linear; /* Run the spin animation */
+    transition: continuous-spin 0.2s ease-in-out;
+}
+/* end of tap logo animation */
 
 
 .menu-toggle {
@@ -152,13 +205,14 @@ button {
 /* Link Buttons */
 .link-button {
     border: 2px solid var(--primary-color);
-    background-color: var(--background-color);
+    background-image: var(--gradient-1);
     border-radius: 25rem;
     padding: 0.4rem 1rem;
     text-decoration: none;
     color: var(--primary-color);
-    transition: background-color 0.5s, color 0.5s; /* Unified transitions */
+    transition: all 0.5s;
     display: inline-block;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 .link-button a {
@@ -170,33 +224,15 @@ button {
 
 .link-button:hover {
     background-color: var(--primary-color);
+    background-image: none;
     color: var(--background-color);
 }
 
 /* link buttons in nav */
 .nav-links .link-button {
-    background-color: var(--primary-color);
-    border: 2px solid var(--background-color);
-    color: var(--background-color);
     width: fit-content;
     margin: auto;
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.nav-links .link-button:hover {
-    background-color: var(--background-color);
-    /* background-color: rgba(255, 255, 255, 0); */
-    /* background-image:
-        linear-gradient(
-            20deg,
-            #9bdceb,
-            #cdd8e3,
-            #f3ecf3,
-            #e7f6a0
-        ); */
-    a {
-        color: var(--primary-color);
-    }
+    border: 2px solid var(--background-color);
 }
 
 .download-icon {
@@ -205,7 +241,6 @@ button {
 
 /* Pages */
 .page {
-    /* background-color: lightgray; */
     margin: 0;
     padding: 2rem 4rem 2rem 4rem;
     background-color: var(--background-color);
@@ -215,19 +250,7 @@ button {
     font-weight: bold;
     text-decoration: underline;
     font-size: 1.6rem;
-    /* background-color: var(--primary-color); */
-    /* background-image:
-    linear-gradient(
-        20deg,
-        #9bdceb,
-        #cdd8e3,
-        #f3ecf3,
-        #e7f6a0
-    ); */
     color: var(--primary-color);
-    /* border: 1px solid var(--primary-color); */
-    /* width: fit-content; */
-    /* padding: 0.3rem 0.8rem; */
 }
 
 /* About Page */
@@ -236,11 +259,9 @@ button {
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto 1fr;
-    /* background-color: rgb(227, 185, 185); */
 }
 
 .intro-welcome {
-    /* border: 2px solid limegreen; */
     grid-row: 4; grid-column: 2;
     margin-top: 1rem;
 }
@@ -255,7 +276,6 @@ button {
 }
 
 #education {
-    /* border: 2px solid blue; */
     text-align: right;
     border-bottom: 2px solid var(--line-color);
     padding-bottom: 1rem;
@@ -266,7 +286,6 @@ button {
     grid-template-rows: auto auto 1fr;
     display: grid;
     gap: 1rem;
-    /* border: 2px solid red; */
     padding: 2rem;
     padding-bottom: 1rem;
     background:
@@ -280,6 +299,7 @@ button {
         #e8f6a09b
     );
     border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 #status {
@@ -294,10 +314,8 @@ button {
 .intro-heading {
     font-size: 2.5rem;
     font-weight: normal;
-    /* border: 2px solid red; */
     grid-row: 2;
     grid-column: 1;
-    /* text-align: center; */
 }
 
 .about-description {
@@ -306,9 +324,6 @@ button {
     grid-row: 3;
     grid-column: 1;
     align-self: start;
-    /* border: 2px solid green; */
-    /* margin-bottom: 2rem; */
-    /* text-align: center; */
 }
 
 .degree {
@@ -337,7 +352,6 @@ button {
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto 1fr;
-    /* background-color: rgb(205, 220, 175); */
 }
 
 .contact-subtitle {
@@ -353,7 +367,6 @@ button {
     grid-template-rows: auto 1fr;
     font-size: 1.2rem;
     gap: 2rem;
-    /* border: 2px solid blue; */
     background-image:
         linear-gradient(
             20deg,
@@ -364,6 +377,7 @@ button {
         );
     padding: 2rem;
     border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 .social-links {
@@ -407,9 +421,11 @@ footer {
     margin: 2rem 0;
     padding-top: 6rem;
     padding-bottom: 8rem;
-    /* box-shadow: 2px 2px 10px rgb(0, 0, 0); */
 }
 
+
+/* the following code was influenced by Kevin Powell's youtube video on creative section shapes
+    https://www.youtube.com/watch?v=hWGgw1K-i8Y&t=1850s */
 #projects::before,
 #projects::after {
     content: ' ';
@@ -435,18 +451,13 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    /* border-bottom: 1px solid var(--secondary-color); */
-    /* padding: 1rem 0; */
-    /* border: 2px solid var(--secondary-color); */
-    /* border: 2px solid var(--background-color); */
     align-items: center;
     background-color: var(--background-color);
     border-radius: 5px;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 .project-image {
-    /* border: 2px solid red; */
     display: grid;
     height: calc(100% - 1rem);
     width: auto;
@@ -463,11 +474,9 @@ footer {
     height: 100%;
     width: auto;
     object-fit: contain; 
-    /* border: 2px solid green; */
     margin: 0;
     padding: 0;
     padding: 1rem 0;
-    /* margin-right: 1rem; */
 }
 
 
@@ -477,9 +486,7 @@ footer {
     grid-template-rows: auto auto auto 1fr;
     align-self: center;
     padding: 2rem 0;
-    /* border: 2px solid blue; */
     margin-left: 2rem;
-    /* margin-right: 3rem; */
 }
 
 .project-title {
@@ -501,7 +508,6 @@ footer {
 .project-description {
     font-size: 1rem;
     margin-top: 0.5rem;
-    /* border: 2px solid pink; */
 }
 
 .project-tools {
@@ -545,11 +551,9 @@ footer {
     }
 
     .nav-links {
-        /* position: absolute; */
         position: fixed;
         visibility: hidden;
         transform: translateX(100%);
-        /* top: 100%;  */
         top: var(--navbar-height);
         left: 0; 
         width: 100%;
@@ -563,9 +567,6 @@ footer {
         border-top: 2px solid var(--background-color);
         transition: transform 0.5s ease;
         will-change: transform; 
-        a {
-            color: var(--background-color);
-        }
         .nav-link {
             align-self: end;
         }
@@ -630,23 +631,23 @@ footer {
     
 }
 
+@media screen and (max-width: 655px) {
+    .project-image img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 @media screen and (max-width: 928px) {
    /* project tiles will be 1 column */
     .project-tile {
-        grid-template-columns: 1fr;
+        grid-template-columns: auto;
         padding: 2rem;
-        padding-bottom: 0;
-        /* border: 2px solid var(--secondary-color); */
-        /* padding: 2rem; */
-        /* border-radius: 25px; */
-        /* background-color: var(--tile-background-color); */
+        gap: 1rem;
     }
 
     .project-info {
-        /* margin-right: 0; */
-        /* margin: 2rem; */
         margin: 0;
-        /* border: 2px solid red; */
         padding: 0;
     }
 
@@ -654,23 +655,21 @@ footer {
         margin-top: 0.5rem;
     }
 
-    .project-image img {
-        display: none;
+    .project-image{
+        margin: 0;
+        padding: 0;
+        justify-content: start;
     }
 
-    /* desktop image will be replaced with 3 columns for mobile images.
-       some images will span 1 column, some will span 2, some will span 3.
-       it depends on how many images are in the mobile-images array.
-       3 images will span 1 column each.
-       2 images will have the first span 1 column and the second span 2 columns.
-       1 image will span 3 columns.
-    */
+    .project-image img {
+        margin: 0;
+        padding: 0;
+    }
 
     /* about and contact pages both made 1 column*/
     #about, #contact {
         display: grid;
         grid-template-columns: 1fr;
-        /* grid-template-rows: auto auto auto auto auto; */
     }
 
     /* reset grid-column for child elements */
@@ -701,17 +700,8 @@ footer {
     }
 
     #education {
-        /* justify-self: center; */
         text-align: center;
-        /* border-top: 2px solid var(--line-color); */
         padding-top: 1rem;
-    }
-
-    #status {
-        /* display: block; */
-        /* border: 2px solid red; */
-        /* align-items: start; */
-        /* text-align: left; */
     }
 
     #contact {
