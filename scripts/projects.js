@@ -1,4 +1,4 @@
-function Project(title, description, tools, githubLink, liveLink, desktopImage, mobileImages) {
+function Project(title, description, tools, githubLink, liveLink, desktopImage, mobileImage) {
     this.title = title;
     this.description = description;
     this.tools = tools;
@@ -7,7 +7,7 @@ function Project(title, description, tools, githubLink, liveLink, desktopImage, 
     this.liveLink = liveLink;
 
     this.desktopImage = desktopImage;
-    this.mobileImages = mobileImages;
+    this.mobileImage = mobileImage;
 
     this.render = () => {
         const projectElement = document.createElement('div');
@@ -23,7 +23,8 @@ function Project(title, description, tools, githubLink, liveLink, desktopImage, 
                 </ul>
             </div>
             <div class="project-image">
-                <img src="assets/${this.desktopImage}" alt="${this.title}">
+                <img id="desktop-image" src="assets/${this.desktopImage}" alt="${this.title}">
+                <img id="mobile-image" src="assets/${this.mobileImage}" alt="${this.title}">
             </div>
         `;
 
@@ -45,7 +46,7 @@ async function loadProjects() {
                 project['github-link'],
                 project['live-link'],
                 project['desktop-image'],
-                project['mobile-images']
+                project['mobile-image']
             )
             projectSection.appendChild(newProject.render());
         })
